@@ -16,7 +16,9 @@ public class Subject {
 	
 	private String subjectUrl;
 	
-	private Date data;
+	private Date date;
+	
+	private String gradeName;
 
 	public Long getId() {
 		return id;
@@ -42,16 +44,29 @@ public class Subject {
 		this.subjectUrl = subjectUrl;
 	}
 
-	public Date getData() {
-		return data;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setData(Date data) {
-		this.data = data;
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public String getGradeName() {
+		return gradeName;
+	}
+
+	public void setGradeName(String gradeName) {
+		this.gradeName = gradeName;
 	}
 
 	@Override
 	public String toString() {
-		return "Subject [id=" + id + ", subject=" + subject + ", subjectUrl=" + subjectUrl + ", data=" + data + "]";
+		return "Subject [id=" + id + ", subject=" + subject + ", subjectUrl=" + subjectUrl + ", data=" + date
+				+ ", gradeName=" + gradeName + "]";
 	}
+
+	
+
+	
 }
