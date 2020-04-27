@@ -710,8 +710,19 @@ public class DateUtil {
                 + date.getDate() + date.getMinutes() + date.getSeconds()  
                 + date.getTime();  
         return timestamp;  
-    }  
-  
+    }
+
+    //根据日期取得星期几
+    public static String getWeek(Date date){
+        String[] weeks = {"周日","周一","周二","周三","周四","周五","周六"};
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        int week_index = cal.get(Calendar.DAY_OF_WEEK) - 1;
+        if(week_index<0){
+            week_index = 0;
+        }
+        return weeks[week_index];
+    }
     public static void main(String[] args) {  
         System.out.println(getYear() + "|" + getMonth() + "|" + getDate());  
     }  
