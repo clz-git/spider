@@ -40,15 +40,14 @@ public class CourseContentPageModelPipeline implements PageModelPipeline<SpiderC
 				String cid = list.get(i).split("course_id=")[1];
 				Course c = new Course();
 				c.setGrade(subject.getGradeName());
-				c.setCourse_url(list.get(i));
-				c.setCourse_id(cid);
+				c.setCourseUrl("https://fudao.qq.com/"+list.get(i));
+				c.setCourseId(cid);
 				c.setDate(new Date());
 				c.setSubject(subject.getSubject());
 				QueryWrapper<Course> cqw = new QueryWrapper<Course>();
-				cqw.eq("date", DateUtil.getDate());
 				cqw.eq("grade", c.getGrade());
 				cqw.eq("subject", c.getSubject());
-				cqw.eq("course_id", c.getCourse_id());
+				cqw.eq("course_id", c.getCourseId());
 				List<Course> ll = cd.selectList(cqw);
 				if(ll == null || ll.size() == 0) {
 					cd.insert(c);

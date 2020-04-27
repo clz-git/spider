@@ -46,7 +46,6 @@ public class CoursePageModelPipeline implements PageModelPipeline<SpiderCourse> 
 			QueryWrapper<Subject> qw = new QueryWrapper<Subject>();
 			qw.eq("subject", subject.getSubject());
 			qw.eq("subject_url", subject.getSubjectUrl());
-			qw.eq("date", DateUtil.getDate());
 			qw.eq("grade_name", subject.getGradeName());
 			List<Subject> l = dao.selectList(qw);
 			if(l == null || l.size() == 0) {
@@ -67,7 +66,6 @@ public class CoursePageModelPipeline implements PageModelPipeline<SpiderCourse> 
 			cc.setGrade(s.getGradeName());
 			cc.setSubject(s.getSubjectName());
 			QueryWrapper<CourseContent> qw = new QueryWrapper<CourseContent>();
-			qw.eq("date", DateUtil.getDate());
 			qw.eq("grade", cc.getGrade());
 			qw.eq("subject", cc.getSubject());
 			qw.eq("course_content_url", cc.getCourseContentUrl());
@@ -81,16 +79,15 @@ public class CoursePageModelPipeline implements PageModelPipeline<SpiderCourse> 
 		for (int i = 0; i < courseList.size(); i++) {
 			Course c = new Course();
 			String cid = courseList.get(i).split("course_id=")[1];
-			c.setCourse_id(cid);
-			c.setCourse_url("https://fudao.qq.com/"+courseList.get(i));
+			c.setCourseId(cid);
+			c.setCourseUrl("https://fudao.qq.com/"+courseList.get(i));
 			c.setDate(new Date());
 			c.setGrade(s.getGradeName());	
 			c.setSubject(s.getSubjectName());
 			QueryWrapper<Course> qw = new QueryWrapper<Course>();
-			qw.eq("date", DateUtil.getDate());
 			qw.eq("grade", c.getGrade());
 			qw.eq("subject", c.getSubject());
-			qw.eq("course_id", c.getCourse_id());
+			qw.eq("course_id", c.getCourseId());
 			List<Course> l = cd.selectList(qw);
 			if(l == null || l.size() == 0) {
 				cd.insert(c);

@@ -12,9 +12,9 @@ public class Course {
 	@TableId(type = IdType.AUTO)
 	private Long id;
 	
-	private String course_id;
+	private String courseId;
 	
-	private String course_url;
+	private String courseUrl;
 	
 	private String grade;
 	
@@ -30,20 +30,20 @@ public class Course {
 		this.id = id;
 	}
 
-	public String getCourse_id() {
-		return course_id;
+	public String getCourseId() {
+		return courseId;
 	}
 
-	public void setCourse_id(String course_id) {
-		this.course_id = course_id;
+	public void setCourseId(String courseId) {
+		this.courseId = courseId;
 	}
 
-	public String getCourse_url() {
-		return course_url;
+	public String getCourseUrl() {
+		return courseUrl;
 	}
 
-	public void setCourse_url(String course_url) {
-		this.course_url = course_url;
+	public void setCourseUrl(String courseUrl) {
+		this.courseUrl = courseUrl;
 	}
 
 	public String getGrade() {
@@ -72,7 +72,13 @@ public class Course {
 
 	@Override
 	public String toString() {
-		return "Course [id=" + id + ", course_id=" + course_id + ", course_url=" + course_url + ", grade=" + grade
-				+ ", subject=" + subject + ", date=" + date + "]";
+		return "Course{" +
+				"id=" + id +
+				", courseId='" + courseId + '\'' +
+				", courseUrl='" + courseUrl + '\'' +
+				", grade='" + grade + '\'' +
+				", subject='" + subject + '\'' +
+				", date=" + date +
+				'}';
 	}
 }
